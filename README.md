@@ -14,4 +14,5 @@ Run ใน Visual Studio Code
 
 เข้า Link ที่ขึ้นมา
 
-
+pip install flask
+pip install requests
