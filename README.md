@@ -1,6 +1,7 @@
 # Cenema
 
 เข้า Link นี้ได้เลย https://testdatacenema.herokuapp.com/
+(ทุกอย่างแสดงยกเว้นรูป ครับ)
  
 Run ใน Visual Studio Code
 
