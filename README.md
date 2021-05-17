@@ -8,7 +8,7 @@ Run ใน Visual Studio Code
 
 พิมพ์ cd venv > cd Scripts > activate > cd.. > cd..
 
-(venv) D:\Crnemademo\Cenema>
+(venv) D:\Cenema>
 
 และ พิมพ์ใน Terminal python app.py แล้ว
 
