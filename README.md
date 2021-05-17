@@ -1,7 +1,9 @@
 # Cenema
 
 เข้า Link นี้ได้เลย https://testdatacenema.herokuapp.com/
-(ทุกอย่างแสดงยกเว้นรูป ครับ)
+(ข้อมูลทุกอย่างแสดงยกเว้นรูป ครับ)
+
+(พอดีจะโชว์แบบ Card แต่ข้อมูลไม่ขึ้น ครับ)
  
 Run ใน Visual Studio Code
 
