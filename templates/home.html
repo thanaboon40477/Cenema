@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block content %}
+<br><br><br>
+
+<div id='app'>
+    <span class="bg"></span>
+    <v-app id=inspire>
+        <v-container>
+            <v-btn
+                color="primary"
+                @click="pushData">
+            เรียกข้อมูลทั้งหมด</v-btn>
+            <v-card-title>
+                <v-text-field
+                  v-model='search'
+                  append-icon="mdi-magnify"
+                  label="Search"
+                  single-line
+                  hide-details
+                ></v-text-field>
+              </v-card-title>
+
+            <v-data-table
+            :headers="headers"
+            :items="product"
+            class="elevation-1"
+            :search="search">
+
+            </v-data-table>
+        </v-container>
+    </v-app>    
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data:() => ({
+            headers: [
+                { text: 'Picture', value: 'poster_path' },
+                { text: 'Name', value: 'original_title' },
+                { text: 'Vote Average', value: 'vote_average' },
+                { text: 'Title', value: 'title' },
+                { text: 'Original Language', value: 'original_language' }
+            ],
+            product: [],
+            search: ''
+        }),
+        methods: {
+            //getData() {
+             //   const path = '/'
+            //    axios.get(path)
+            //    .then((res) => {
+             //       //let response = this.product = res.data.ref
+             //       console.log("success")
+            //    })
+              //  .catch((err) => {
+             //       console.log(err)
+           //     })
+          //  },
+            pushData() {
+                const path = '/'
+                axios.post(path)
+                .then((res) => {
+                    let response = this.product = res.data.ref
+                    console.log(response)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+            }
+        },
+        delimiters: ["[[", "]]"]
+    })
+</script>
+
+<style>
+    @import "/static/css/bg_color.css";
+</style>
+
+{% endblock %}

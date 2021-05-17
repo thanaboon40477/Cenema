@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<br><br><br><br>
+
+<div id="app">
+    <v-app id="inspire">
+        <v-row>
+            <v-col
+            v-for="n in 9"
+            :key="n"
+            class="d-flex child-flex"
+            cols="sm-4"
+            style="ml-10">
+                <v-card
+                    class="mx-auto"
+                    max-width="400">
+                    <v-img
+                        class="white--text align-end"
+                        height="200px"
+                        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                        >
+                    <v-card-title>Top 10 Australian beaches</v-card-title>
+                    </v-img>
+                
+                    <v-card-subtitle class="pb-0" >
+                    [[orgn_lg]]
+                    </v-card-subtitle>
+                
+                    <v-card-text class="text--primary">
+                    <div>Whitehaven Beach</div>
+                
+                    <div>Whitsunday Island, Whitsunday Islands</div>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+    </v-app>
+  </div>
+
+<script>
+    new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+        data: () => ({
+            orgn_lg: [],
+            orgn_title: [],
+            path_image: [],
+            title: [],
+            vote_avg: []
+            
+        }),
+       // created(){
+       //     this.showData()
+       // },
+        methods:{
+            showData(){
+                const path = '/';
+                axios.get(path)
+                .then((res) => {
+                    this.orgn_lg = res.data.ref.original_language
+                    this.orgn_title = res.data.ref.original_title
+                    this.path_image = res.data.ref.poster_path
+                    this.title = res.data.ref.title
+                    this.vote_avg = res.data.ref.vote_average
+                    console.log(this.orgn_lg)
+                    console.log("success")
+
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+            }
+        },
+        delimiters: ["[[", "]]"]
+    })
+
+</script>
+
+{% endblock %}
